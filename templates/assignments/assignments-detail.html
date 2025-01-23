@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Класс - Детали задания</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+</head>
+<body class="bg-gray-50">
+    <header class="flex items-center justify-between px-4 h-16 bg-white border-b">
+        <div class="flex items-center gap-4">
+            <button class="text-gray-500 hover:text-gray-700">
+                <i class="bi bi-list text-xl"></i>
+            </button>
+            <a href="/" class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-green-500 rounded flex items-center justify-center">
+                    <span class="text-white font-medium">К</span>
+                </div>
+                <span class="text-xl">Класс</span>
+            </a>
+        </div>
+        <div class="flex items-center gap-2">
+            <button class="text-gray-500 hover:text-gray-700">
+                <i class="bi bi-plus-lg text-xl"></i>
+            </button>
+            <button class="text-gray-500 hover:text-gray-700">
+                <i class="bi bi-grid-3x3-gap-fill text-xl"></i>
+            </button>
+            <button class="text-gray-500 hover:text-gray-700 rounded-full">
+                <i class="bi bi-person-circle text-xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="flex">
+        <aside class="w-64 min-h-[calc(100vh-64px)] p-3 border-r bg-white">
+            <nav class="space-y-1">
+                <a href="/" class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-gray-700 hover:bg-gray-100">
+                    <i class="bi bi-house-door"></i>
+                    Главная страница
+                </a>
+                <a href="/courses.html" class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-gray-700 hover:bg-gray-100">
+                    <i class="bi bi-book"></i>
+                    Курсы
+                </a>
+                <a href="/assignments.html" class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm bg-blue-50 text-blue-700">
+                    <i class="bi bi-file-text"></i>
+                    Задания
+                </a>
+                <a href="/users.html" class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-gray-700 hover:bg-gray-100">
+                    <i class="bi bi-people"></i>
+                    Пользователи
+                </a>
+                <a href="/calendar" class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-gray-700 hover:bg-gray-100">
+                    <i class="bi bi-calendar3"></i>
+                    Календарь
+                </a>
+                <a href="/settings" class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-gray-700 hover:bg-gray-100">
+                    <i class="bi bi-gear"></i>
+                    Настройки
+                </a>
+            </nav>
+        </aside>
+
+        <main class="flex-1 p-6">
+            <div class="mb-6">
+                <h1 class="text-3xl font-bold mb-2">17-dars: Polymorphism | Uyga vazifa</h1>
+                <p class="text-gray-600">Курс: Python Backend</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="md:col-span-2 space-y-6">
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h2 class="text-xl font-semibold mb-4">Описание задания</h2>
+                        <p class="text-gray-700">
+                            В этом задании вы будете практиковать концепцию полиморфизма в Python. Вам нужно будет создать несколько классов с общим интерфейсом и продемонстрировать, как они могут быть использованы полиморфно.
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h2 class="text-xl font-semibold mb-4">Требования</h2>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>Создайте базовый класс Shape с методом area()</li>
+                            <li>Создайте подклассы Circle, Rectangle и Triangle</li>
+                            <li>Реализуйте метод area() для каждого подкласса</li>
+                            <li>Продемонстрируйте использование полиморфизма с этими классами</li>
+                            <li>Напишите функцию, которая принимает список фигур и вычисляет общую площадь</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h2 class="text-xl font-semibold mb-4">Отправленные работы</h2>
+                        <ul class="space-y-4">
+                            <li class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-medium">Иван Иванов</h3>
+                                    <p class="text-sm text-gray-500">Отправлено: 24 янв. 2023, 15:30</p>
+                                </div>
+                                <a href="#" class="text-blue-600 hover:text-blue-800">Проверить</a>
+                            </li>
+                            <li class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-medium">Мария Петрова</h3>
+                                    <p class="text-sm text-gray-500">Отправлено: 23 янв. 2023, 18:45</p>
+                                </div>
+                                <a href="#" class="text-blue-600 hover:text-blue-800">Проверить</a>
+                            </li>
+                            <!-- More submissions... -->
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h2 class="text-xl font-semibold mb-4">Информация о задании</h2>
+                        <ul class="space-y-2">
+                            <li class="flex items-center gap-2">
+                                <i class="bi bi-calendar text-gray-500"></i>
+                                <span>Дата выдачи: 18 янв. 2023</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="bi bi-clock text-gray-500"></i>
+                                <span>Срок сдачи: 25 янв. 2023</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="bi bi-people text-gray-500"></i>
+                                <span>Отправлено: 15/25</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h2 class="text-xl font-semibold mb-4">Действия</h2>
+                        <div class="space-y-2">
+                            <button class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">
+                                Редактировать задание
+                            </button>
+                            <button class="w-full bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">
+                                Отправить напоминание
+                            </button>
+                            <button class="w-full bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded">
+                                Удалить задание
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="bg-white border-t mt-8 py-4">
+        <div class="container mx-auto text-center text-gray-500">
+            <p>&copy; 2023 Класс. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>

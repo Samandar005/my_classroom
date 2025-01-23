@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Класс - Детали курса</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+</head>
+<body class="bg-gray-50">
+    <header class="flex items-center justify-between px-4 h-16 bg-white border-b">
+        <div class="flex items-center gap-4">
+            <button class="text-gray-500 hover:text-gray-700">
+                <i class="bi bi-list text-xl"></i>
+            </button>
+            <a href="/" class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-green-500 rounded flex items-center justify-center">
+                    <span class="text-white font-medium">К</span>
+                </div>
+                <span class="text-xl">Класс</span>
+            </a>
+        </div>
+        <div class="flex items-center gap-2">
+            <button class="text-gray-500 hover:text-gray-700">
+                <i class="bi bi-plus-lg text-xl"></i>
+            </button>
+            <button class="text-gray-500 hover:text-gray-700">
+                <i class="bi bi-grid-3x3-gap-fill text-xl"></i>
+            </button>
+            <button class="text-gray-500 hover:text-gray-700 rounded-full">
+                <i class="bi bi-person-circle text-xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="flex">
+        <aside class="w-64 min-h-[calc(100vh-64px)] p-3 border-r bg-white">
+            <nav class="space-y-1">
+                <a href="/" class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-gray-700 hover:bg-gray-100">
+                    <i class="bi bi-house-door"></i>
+                    Главная страница
+                </a>
+                <a href="/courses.html" class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm bg-blue-50 text-blue-700">
+                    <i class="bi bi-book"></i>
+                    Курсы
+                </a>
+                <a href="/assignments.html" class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-gray-700 hover:bg-gray-100">
+                    <i class="bi bi-file-text"></i>
+                    Задания
+                </a>
+                <a href="/users.html" class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-gray-700 hover:bg-gray-100">
+                    <i class="bi bi-people"></i>
+                    Пользователи
+                </a>
+                <a href="/calendar" class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-gray-700 hover:bg-gray-100">
+                    <i class="bi bi-calendar3"></i>
+                    Календарь
+                </a>
+                <a href="/settings" class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-gray-700 hover:bg-gray-100">
+                    <i class="bi bi-gear"></i>
+                    Настройки
+                </a>
+            </nav>
+        </aside>
+
+        <main class="flex-1 p-6">
+            <div class="mb-6">
+                <h1 class="text-3xl font-bold mb-2">Python Backend</h1>
+                <p class="text-gray-600">MS 17 | 1-modul</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="md:col-span-2 space-y-6">
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h2 class="text-xl font-semibold mb-4">Описание курса</h2>
+                        <p class="text-gray-700">
+                            Этот курс охватывает основы разработки бэкенда с использованием Python. Студенты изучат ключевые концепции и инструменты, необходимые для создания надежных и масштабируемых веб-приложений.
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h2 class="text-xl font-semibold mb-4">Задания</h2>
+                        <ul class="space-y-4">
+                            <li class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-medium">17-dars: Polymorphism | Uyga vazifa</h3>
+                                    <p class="text-sm text-gray-500">Срок сдачи: 25 янв. 2023</p>
+                                </div>
+                                <a href="#" class="text-blue-600 hover:text-blue-800">Подробнее</a>
+                            </li>
+                            <li class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-medium">16-dars: Inheritance</h3>
+                                    <p class="text-sm text-gray-500">Срок сдачи: 20 янв. 2023</p>
+                                </div>
+                                <a href="#" class="text-blue-600 hover:text-blue-800">Подробнее</a>
+                            </li>
+                            <!-- More assignments... -->
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h2 class="text-xl font-semibold mb-4">Информация о курсе</h2>
+                        <ul class="space-y-2">
+                            <li class="flex items-center gap-2">
+                                <i class="bi bi-person text-gray-500"></i>
+                                <span>Преподаватель: Иван Иванов</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="bi bi-calendar text-gray-500"></i>
+                                <span>Начало: 1 янв. 2023</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="bi bi-clock text-gray-500"></i>
+                                <span>Продолжительность: 12 недель</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="bi bi-people text-gray-500"></i>
+                                <span>Студентов: 25</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h2 class="text-xl font-semibold mb-4">Действия</h2>
+                        <div class="space-y-2">
+                            <button class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">
+                                Редактировать курс
+                            </button>
+                            <button class="w-full bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">
+                                Добавить задание
+                            </button>
+                            <button class="w-full bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded">
+                                Удалить курс
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="bg-white border-t mt-8 py-4">
+        <div class="container mx-auto text-center text-gray-500">
+            <p>&copy; 2023 Класс. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>
