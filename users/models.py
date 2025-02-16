@@ -1,3 +1,6 @@
 from django.db import models
+from .base_model import BaseModel
+from django.shortcuts import reverse
 
-# Create your models here.
+
+class User(BaseModel):
