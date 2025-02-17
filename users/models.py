@@ -15,3 +15,6 @@ class User(BaseModel):
     role = models.CharField(max_length=2, choices=ROLE_CHOICES, default='s')
     password1 = models.CharField(max_length=50)
     password2 = models.CharField(max_length=50)
+
+    def is_teacher(self):
+        return self.role == 'p'
