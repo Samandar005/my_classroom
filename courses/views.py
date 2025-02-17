@@ -34,3 +34,13 @@ class UpdateCourseView(View):
             form.save()
             return redirect('courses:list')
         return render(request, 'courses/course-form.html', {'form': form, 'course': course})
+
+class CourseDeleteView(View):
+    def get(self, request, pk):
+        course = get_object_or_404(Course, pk=pk)
+        return render(request, 'courses/course-delete-confirm.html' ,{'course': course})
+
+    def post(self, request, pk):
+        course = get_object_or_404(Course, pk=pk)
+        course.delete()
+        return redirect('courses:list')
