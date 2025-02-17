@@ -15,6 +15,7 @@ class Course(BaseModel):
     description = models.TextField()
     status = models.CharField(max_length=2, choices=CHOICES_STATUS, default='in')
     teacher = models.ForeignKey(User, on_delete=models.CASCADE, related_name='courses', null=True, blank=True)
+    due_date = models.DateField()
 
     def __str__(self):
         return self.name
