@@ -15,7 +15,7 @@ class UserListView(View):
 class UserCreateView(View):
     def get(self, request):
         form = UserForm()
-        return render(request, 'users/users-form.html', {'form': form})
+        return render(request, 'users/users-form.html', {'form': form, 'user': None})
 
     def post(self, request):
         form = UserForm(request.POST, request.FILES)
@@ -36,7 +36,7 @@ class UserUpdateView(View):
         if form.is_valid():
             form.save()
             return redirect('users:list')
-        return render(request, 'users/users-form.html', {'form': form})
+        return render(request, 'users/users-form.html', {'form': form, 'user': user})
 
 class UserDeleteView(View):
     def get(self, request, pk):
