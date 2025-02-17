@@ -4,12 +4,14 @@
 
 {% block content %}
 <div class="flex justify-between items-center mb-6">
-                <h1 class="text-2xl font-bold">Управление пользователями</h1>
-                <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center gap-2">
-                    <i class="bi bi-person-plus"></i>
-                    Добавить пользователя
-                </button>
-            </div>
+    <h1 class="text-2xl font-bold">Управление пользователями</h1>
+    <a href="{% url 'users:create' %}">
+        <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center gap-2">
+            <i class="bi bi-person-plus"></i>
+            Добавить пользователя
+        </button>
+    </a>
+</div>
 
 <div class="bg-white rounded-lg shadow overflow-hidden">
     <table class="min-w-full divide-y divide-gray-200">

@@ -14,7 +14,9 @@
                 Имя пользователя
             </label>
             {{ form.name }}
-            {{ form.name.errors }}
+            {% if form.name.errors %}
+                <div class="text-red-500 text-sm">{{ form.name.errors }}</div>
+            {% endif %}
         </div>
 
         <div class="mb-4">
@@ -22,7 +24,9 @@
                 Email
             </label>
             {{ form.email }}
-            {{ form.email.errors }}
+            {% if form.email.errors %}
+                <div class="text-red-500 text-sm">{{ form.email.errors }}</div>
+            {% endif %}
         </div>
 
         <div class="mb-4">
@@ -30,15 +34,19 @@
                 Роль
             </label>
             {{ form.role }}
-            {{ form.role.errors }}
+            {% if form.role.errors %}
+                <div class="text-red-500 text-sm">{{ form.role.errors }}</div>
+            {% endif %}
         </div>
 
-         <div class="mb-4">
+        <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="{{ form.status.id_for_label }}">
                 Статус
             </label>
             {{ form.status }}
-            {{ form.status.errors }}
+            {% if form.status.errors %}
+                <div class="text-red-500 text-sm">{{ form.status.errors }}</div>
+            {% endif %}
         </div>
 
         <div class="mb-4">
@@ -46,7 +54,9 @@
                 Пароль
             </label>
             {{ form.password1 }}
-            {{ form.password1.errors }}
+            {% if form.password1.errors %}
+                <div class="text-red-500 text-sm">{{ form.password1.errors }}</div>
+            {% endif %}
         </div>
 
         <div class="mb-4">
@@ -54,7 +64,9 @@
                 Подтвердите пароль
             </label>
             {{ form.password2 }}
-            {{ form.password2.errors }}
+            {% if form.password2.errors %}
+                <div class="text-red-500 text-sm">{{ form.password2.errors }}</div>
+            {% endif %}
         </div>
 
         <div class="flex items-center justify-between">
