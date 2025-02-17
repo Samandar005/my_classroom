@@ -33,3 +33,6 @@ class User(BaseModel):
     def get_delete_url(self):
         return reverse('users:delete', args=[self.pk])
 
+    def __str__(self):
+        return f"{self.name}"
+

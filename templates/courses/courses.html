@@ -36,29 +36,31 @@
         {% for course in courses %}
             <tr>
                 <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="flex items-center">
-                        <div class="flex-shrink-0 h-10 w-10">
-                            <div class="h-10 w-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold">
-                                PB
+                    <a href="{{ course.get_detail_url }}">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 h-10 w-10">
+                                <div class="h-10 w-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold">
+                                    PB
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <div class="text-sm font-medium text-gray-900">
+                                    {{ course.name }}
+                                </div>
+                                <div class="text-sm text-gray-500">
+                                    MS 17 | 1-modul
+                                </div>
                             </div>
                         </div>
-                        <div class="ml-4">
-                            <div class="text-sm font-medium text-gray-900">
-                                {{ course.name }}
-                            </div>
-                            <div class="text-sm text-gray-500">
-                                MS 17 | 1-modul
-                            </div>
-                        </div>
-                    </div>
+                    </a>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="text-sm text-gray-900">Иван Иванов</div>
-                    <div class="text-sm text-gray-500">ivan@example.com</div>
+                    <div class="text-sm text-gray-900">{{ course.teacher }}</div>
+                    <div class="text-sm text-gray-500">{{ course.teacher.email }}</div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                        Активный
+                        {{ course.get_status_display }}
                     </span>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
