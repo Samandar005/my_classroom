@@ -4,18 +4,21 @@
 
 {% block content %}
  <div class="max-w-2xl mx-auto">
-                <h1 class="text-2xl font-bold mb-6">Подтверждение удаления курса</h1>
-                <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-                    <p class="mb-4 text-gray-700">Вы уверены, что хотите удалить курс "Python Backend"? Это действие нельзя отменить.</p>
-                    <div class="flex items-center justify-between">
-                        <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
-                            Удалить
-                        </button>
-                        <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="/courses.html">
-                            Отмена
-                        </a>
-                    </div>
-                </div>
-            </div>
+    <h1 class="text-2xl font-bold mb-6">Подтверждение удаления курса</h1>
+    <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <p class="mb-4 text-gray-700">Вы уверены, что хотите удалить курс "{{ course.name }}"? Это действие нельзя отменить.</p>
+        <div class="flex items-center justify-between">
+            <form action="{{ course.get_delete_url }}" method="post">
+                {% csrf_token %}
+                <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                    Удалить
+                </button>
+            </form>
+            <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="{% url 'courses:list' %}">
+                Отмена
+            </a>
+        </div>
+    </div>
+</div>
 {% endblock %}
 
