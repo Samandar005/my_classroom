@@ -26,5 +26,8 @@ class Course(BaseModel):
     def get_delete_url(self):
         return reverse('courses:delete', args=[self.pk])
 
+    def get_detail_url(self):
+        return reverse('courses:detail', args=[self.pk])
+
     def __str__(self):
         return self.name
