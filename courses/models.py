@@ -17,8 +17,14 @@ class Course(BaseModel):
     teacher = models.ForeignKey(User, on_delete=models.CASCADE, related_name='courses', null=True, blank=True)
     due_date = models.DateField()
 
-    def __str__(self):
-        return self.name
-
     def is_teacher(self):
         return self.teacher.role == 'p'
+
+    def get_update_url(self):
+        return reverse('courses:update', args=[self.pk])
+
+    def get_delete_url(self):
+        return reverse('courses:delete', args=[self.pk])
+
+    def __str__(self):
+        return self.name
