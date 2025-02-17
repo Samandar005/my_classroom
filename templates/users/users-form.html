@@ -33,6 +33,14 @@
             {{ form.role.errors }}
         </div>
 
+         <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="{{ form.status.id_for_label }}">
+                Статус
+            </label>
+            {{ form.status }}
+            {{ form.status.errors }}
+        </div>
+
         <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="{{ form.password1.id_for_label }}">
                 Пароль
