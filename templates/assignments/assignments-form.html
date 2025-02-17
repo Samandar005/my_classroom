@@ -4,52 +4,52 @@
 
 {% block content %}
   <div class="max-w-2xl mx-auto">
-                <h1 class="text-2xl font-bold mb-6">Создать/Редактировать задание</h1>
-                <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-                    <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="assignmentTitle">
-                            Название задания
-                        </label>
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="assignmentTitle" type="text" placeholder="Введите название задания">
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="assignmentCourse">
-                            Курс
-                        </label>
-                        <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="assignmentCourse">
-                            <option>Выберите курс</option>
-                            <option>Python Backend</option>
-                            <option>JavaScript Основы</option>
-                            <option>Web Development</option>
-                        </select>
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="assignmentDescription">
-                            Описание задания
-                        </label>
-                        <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="assignmentDescription" placeholder="Введите описание задания" rows="4"></textarea>
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="assignmentDueDate">
-                            Срок сдачи
-                        </label>
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="assignmentDueDate" type="datetime-local">
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="assignmentMaxScore">
-                            Максимальный балл
-                        </label>
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="assignmentMaxScore" type="number" min="0" step="1">
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-                            Сохранить
-                        </button>
-                        <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="/assignments.html">
-                            Отмена
-                        </a>
-                    </div>
-                </form>
-            </div>
+    <h1 class="text-2xl font-bold mb-6">Создать/Редактировать задание</h1>
+    <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="assignmentTitle">
+                Название задания
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="assignmentTitle" type="text" placeholder="Введите название задания">
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="assignmentCourse">
+                Курс
+            </label>
+            <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="assignmentCourse">
+                <option>Выберите курс</option>
+                <option>Python Backend</option>
+                <option>JavaScript Основы</option>
+                <option>Web Development</option>
+            </select>
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="assignmentDescription">
+                Описание задания
+            </label>
+            <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="assignmentDescription" placeholder="Введите описание задания" rows="4"></textarea>
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="assignmentDueDate">
+                Срок сдачи
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="assignmentDueDate" type="datetime-local">
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="assignmentMaxScore">
+                Максимальный балл
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="assignmentMaxScore" type="number" min="0" step="1">
+        </div>
+        <div class="flex items-center justify-between">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                Сохранить
+            </button>
+            <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="/assignments.html">
+                Отмена
+            </a>
+        </div>
+    </form>
+</div>
 {% endblock %}
 
