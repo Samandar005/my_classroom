@@ -7,7 +7,7 @@ class Course(BaseModel):
     name = models.CharField(max_length=100)
     code = models.CharField(max_length=50)
     description = models.TextField()
-    teacher = models.ForeignKey(User, on_delete=models.CASCADE, related_name='courses')
+    teacher = models.ForeignKey(User, on_delete=models.CASCADE, related_name='courses', null=True, blank=True)
 
     def __str__(self):
         return self.name
