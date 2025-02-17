@@ -24,7 +24,8 @@ from users.views import HomePageView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomePageView.as_view(), name='home'),
-    path('users/', include('users.urls'))
+    path('users/', include('users.urls')),
+    path('courses/', include('courses.urls')),
 ]
 
 if settings.DEBUG:
