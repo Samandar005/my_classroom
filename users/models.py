@@ -20,6 +20,7 @@ class User(BaseModel):
     email = models.EmailField(unique=True)
     role = models.CharField(max_length=2, choices=ROLE_CHOICES, default='s', blank=True)
     status = models.CharField(max_length=2, choices=CHOICES_STATUS, default='in')
+    image = models.ImageField(upload_to='users/')
     password1 = models.CharField(max_length=50)
     password2 = models.CharField(max_length=50)
 
