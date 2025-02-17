@@ -4,7 +4,7 @@ from .models import User
 class UserForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ('name', 'email', 'role', 'status', 'password1', 'password2')
+        fields = ('name', 'email', 'role', 'status', 'image', 'password1', 'password2')
         widgets = {
             'name': forms.TextInput(attrs={
                 'class': 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline',
@@ -18,6 +18,9 @@ class UserForm(forms.ModelForm):
                 'class': 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline',
             }),
             'status': forms.Select(attrs={
+                'class': 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline',
+            }),
+            'image': forms.FileInput(attrs={
                 'class': 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline',
             }),
             'password1': forms.PasswordInput(attrs={

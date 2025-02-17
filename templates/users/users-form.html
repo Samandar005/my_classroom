@@ -5,7 +5,7 @@
 {% block content %}
 <div class="max-w-2xl mx-auto">
     <h1 class="text-2xl font-bold mb-6">Создать/Редактировать пользователя</h1>
-    <form method="post" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <form method="post" enctype="multipart/form-data" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">  <!-- Added enctype -->
         {% csrf_token %}
         {{ form.non_field_errors }}
 
@@ -46,6 +46,16 @@
             {{ form.status }}
             {% if form.status.errors %}
                 <div class="text-red-500 text-sm">{{ form.status.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="{{ form.image.id_for_label }}">
+                Изображение
+            </label>
+            {{ form.image }}
+            {% if form.image.errors %}
+                <div class="text-red-500 text-sm">{{ form.image.errors }}</div>
             {% endif %}
         </div>
 

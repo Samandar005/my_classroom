@@ -18,7 +18,7 @@ class UserCreateView(View):
         return render(request, 'users/users-form.html', {'form': form})
 
     def post(self, request):
-        form = UserForm(request.POST)
+        form = UserForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('users:list')
@@ -32,7 +32,7 @@ class UserUpdateView(View):
 
     def post(self, request, pk):
         user = get_object_or_404(User, pk=pk)
-        form = UserForm(request.POST, instance=user)
+        form = UserForm(request.POST, request.FILES, instance=user)
         if form.is_valid():
             form.save()
             return redirect('users:list')
