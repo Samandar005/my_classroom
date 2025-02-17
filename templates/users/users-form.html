@@ -1,46 +1,54 @@
 {% extends 'base.html' %}
 
-{% block title %} Класс - Форма пользователя  {% endblock %}
+{% block title %} Класс - Форма пользователя {% endblock %}
 
 {% block content %}
 <div class="max-w-2xl mx-auto">
     <h1 class="text-2xl font-bold mb-6">Создать/Редактировать пользователя</h1>
-    <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <form method="post" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+
         <div class="mb-4">
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="userName">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="{{ form.name.id_for_label }}">
                 Имя пользователя
             </label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="userName" type="text" placeholder="Введите имя пользователя">
+            {{ form.name }}
+            {{ form.name.errors }}
         </div>
+
         <div class="mb-4">
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="userEmail">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="{{ form.email.id_for_label }}">
                 Email
             </label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="userEmail" type="email" placeholder="Введите email">
+            {{ form.email }}
+            {{ form.email.errors }}
         </div>
+
         <div class="mb-4">
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="userRole">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="{{ form.role.id_for_label }}">
                 Роль
             </label>
-            <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="userRole">
-                <option>Выберите роль</option>
-                <option>Преподаватель</option>
-                <option>Студент</option>
-                <option>Администратор</option>
-            </select>
+            {{ form.role }}
+            {{ form.role.errors }}
         </div>
+
         <div class="mb-4">
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="userPassword">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="{{ form.password1.id_for_label }}">
                 Пароль
             </label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="userPassword" type="password" placeholder="Введите пароль">
+            {{ form.password1 }}
+            {{ form.password1.errors }}
         </div>
+
         <div class="mb-4">
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="userConfirmPassword">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="{{ form.password2.id_for_label }}">
                 Подтвердите пароль
             </label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="userConfirmPassword" type="password" placeholder="Подтвердите пароль">
+            {{ form.password2 }}
+            {{ form.password2.errors }}
         </div>
+
         <div class="flex items-center justify-between">
             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
                 Сохранить
