@@ -4,7 +4,7 @@ from .models import Course
 class CourseForm(forms.ModelForm):
     class Meta:
         model = Course
-        fields = ('name', 'code', 'description', 'status', 'teacher')
+        fields = ('name', 'code', 'description', 'status', 'teacher', 'due_date')
 
     def clean_name(self):
         name = self.cleaned_data.get('name')
