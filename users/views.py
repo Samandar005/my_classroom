@@ -10,14 +10,19 @@ class HomePageView(View):
 class UserCreateView(View):
     def get(self, request):
         form = UserForm()
-        return render(request, 'user_form.html', {'form': form})
+        return render(request, 'users/users-form.html', {'form': form})
 
     def post(self, request):
         form = UserForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('users:list')
-        return render(request, 'user_form.html', {'form': form})
+        return render(request, 'users/users-form.html', {'form': form})
+
+class UserUpdateView(View):
+    def get(self):
+
+    def post(self):
 
 
 
