@@ -7,6 +7,11 @@ class HomePageView(View):
     def get(self, request):
         return render(request, 'index.html')
 
+class UserListView(View):
+    def get(self, request):
+        users = User.objects.all()
+        return render(request, 'users/users.html', {'users': users})
+
 class UserCreateView(View):
     def get(self, request):
         form = UserForm()
