@@ -10,9 +10,16 @@ class User(BaseModel):
         ('a', 'Администратор'),
     ]
 
+    CHOICES_STATUS = [
+        ('ac', 'Активный'),
+        ('in', 'Неактивный'),
+        ('pd', 'В ожидании'),
+    ]
+
     name = models.CharField(max_length=200)
     email = models.EmailField(unique=True)
     role = models.CharField(max_length=2, choices=ROLE_CHOICES, default='s', blank=True)
+    status = models.CharField(max_length=2, choices=CHOICES_STATUS, default='in')
     password1 = models.CharField(max_length=50)
     password2 = models.CharField(max_length=50)
 
