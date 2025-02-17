@@ -12,7 +12,7 @@ class User(BaseModel):
 
     name = models.CharField(max_length=200)
     email = models.EmailField(unique=True)
-    role = models.CharField(max_length=2, choices=ROLE_CHOICES, default='s')
+    role = models.CharField(max_length=2, choices=ROLE_CHOICES, default='s', blank=True)
     password1 = models.CharField(max_length=50)
     password2 = models.CharField(max_length=50)
 
