@@ -49,6 +49,16 @@
         </div>
 
         <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="id_status">
+                Статус курса
+            </label>
+            {{ form.status }}
+            {% if form.status.errors %}
+                <div class="text-red-500 text-sm">{{ form.status.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="id_due_date">
                 Дата окончания
             </label>
