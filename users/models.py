@@ -26,3 +26,10 @@ class User(BaseModel):
 
     def is_teacher(self):
         return self.role == 'p'
+
+    def get_update_url(self):
+        return reverse('users:update', args=[self.pk])
+
+    def get_delete_url(self):
+        return reverse('users:delete', args=[self.pk])
+
