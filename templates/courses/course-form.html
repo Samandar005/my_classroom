@@ -1,61 +1,71 @@
 {% extends 'base.html' %}
 
-{% block title %} Класс - Форма курса  {% endblock %}
+{% block title %} Класс - Форма курса {% endblock %}
 
 {% block content %}
 <div class="max-w-2xl mx-auto">
     <h1 class="text-2xl font-bold mb-6">Создать/Редактировать курс</h1>
-    <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <form method="post" action="{% url 'courses:create' %}" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        {% csrf_token %}
+
         <div class="mb-4">
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="courseName">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="id_name">
                 Название курса
             </label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="courseName" type="text" placeholder="Введите название курса">
+            {{ form.name }}
+            {% if form.name.errors %}
+                <div class="text-red-500 text-sm">{{ form.name.errors }}</div>
+            {% endif %}
         </div>
+
         <div class="mb-4">
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="courseCode">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="id_code">
                 Код курса
             </label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="courseCode" type="text" placeholder="Введите код курса">
+            {{ form.code }}
+            {% if form.code.errors %}
+                <div class="text-red-500 text-sm">{{ form.code.errors }}</div>
+            {% endif %}
         </div>
+
         <div class="mb-4">
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="courseDescription">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="id_description">
                 Описание курса
             </label>
-            <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="courseDescription" placeholder="Введите описание курса" rows="4"></textarea>
+            {{ form.description }}
+            {% if form.description.errors %}
+                <div class="text-red-500 text-sm">{{ form.description.errors }}</div>
+            {% endif %}
         </div>
+
         <div class="mb-4">
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="courseInstructor">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="id_teacher">
                 Преподаватель
             </label>
-            <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="courseInstructor">
-                <option>Выберите преподавателя</option>
-                <option>Иван Иванов</option>
-                <option>Мария Петрова</option>
-                <option>Алексей Сидоров</option>
-            </select>
+            {{ form.teacher }}
+            {% if form.teacher.errors %}
+                <div class="text-red-500 text-sm">{{ form.teacher.errors }}</div>
+            {% endif %}
         </div>
+
         <div class="mb-4">
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="courseStartDate">
-                Дата начала
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="id_due_date">
+                Дата окончания
             </label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="courseStartDate" type="date">
+            {{ form.due_date }}
+            {% if form.due_date.errors %}
+                <div class="text-red-500 text-sm">{{ form.due_date.errors }}</div>
+            {% endif %}
         </div>
-        <div class="mb-4">
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="courseDuration">
-                Продолжительность (в неделях)
-            </label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="courseDuration" type="number" min="1" max="52">
-        </div>
+
         <div class="flex items-center justify-between">
             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
                 Сохранить
             </button>
-            <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="/courses.html">
+            <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="{% url 'courses:list' %}">
                 Отмена
             </a>
         </div>
     </form>
 </div>
-    {% endblock %}
-
+{% endblock %}
