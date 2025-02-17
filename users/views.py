@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from .forms import UserForm
-
+from .models import User
 
 class HomePageView(View):
     def get(self, request):
@@ -20,9 +20,17 @@ class UserCreateView(View):
         return render(request, 'users/users-form.html', {'form': form})
 
 class UserUpdateView(View):
-    def get(self):
+    def get(self, request, pk):
+        user = get_object_or_404(User, pk=pk)
+        form = UserForm(instance=user)
+        return render(request, 'users/users-form.html', {'form': form})
 
-    def post(self):
-
+    def post(self, request, pk):
+        user = get_object_or_404(User, pk=pk)
+        form = UserForm(request.POST, instance=user)
+        if form.is_valid():
+            form.save()
+            return redirect('users:list')
+        return render(request, 'users/users-form.html', {'form': form})
 
 
