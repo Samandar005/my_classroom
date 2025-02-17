@@ -45,5 +45,8 @@ class CourseDeleteView(View):
         course.delete()
         return redirect('courses:list')
 
+
 class CourseDetailView(View):
     def get(self, request, pk):
+        course = get_object_or_404(Course, pk=pk)
+        return render(request, 'courses/course-details.html', {'course': course})
