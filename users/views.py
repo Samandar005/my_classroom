@@ -38,11 +38,18 @@ class UserUpdateView(View):
         user = get_object_or_404(User, pk=pk)
         form = UserForm(request.POST, request.FILES, instance=user)
         if form.is_valid():
+            user.name = form.cleaned_data.get('name')
+            user.email = form.cleaned_data.get('email')
+            user.role = form.cleaned_data.get('role')
+            user.status = form.cleaned_data.get('status')
+            user.image = form.cleaned_data.get('image')
+
             password1 = form.cleaned_data.get('password1')
             password2 = form.cleaned_data.get('password2')
             if password1 and password1 == password2:
                 user.set_password(password1)
-            form.save()
+
+            user.save()
             return redirect('users:list')
 
         ctx = {'form': form, 'user': user}

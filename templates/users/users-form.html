@@ -71,7 +71,12 @@
             <label class="block text-gray-700 text-sm font-bold mb-2" for="{{ form.password1.id_for_label }}">
                 Пароль
             </label>
-            {{ form.password1 }}
+            {% if user.password1 %}
+                <input type="text" value="******" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" readonly />
+                <small>Для изменения пароля введите новый.</small>
+            {% else %}
+                {{ form.password1 }}
+            {% endif %}
             {% if form.password1.errors %}
                 <div class="text-red-500 text-sm">{{ form.password1.errors }}</div>
             {% endif %}
@@ -81,7 +86,11 @@
             <label class="block text-gray-700 text-sm font-bold mb-2" for="{{ form.password2.id_for_label }}">
                 Подтвердите пароль
             </label>
-            {{ form.password2 }}
+            {% if user.password1 %}
+                <input type="text" value="******" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" readonly />
+            {% else %}
+                {{ form.password2 }}
+            {% endif %}
             {% if form.password2.errors %}
                 <div class="text-red-500 text-sm">{{ form.password2.errors }}</div>
             {% endif %}
