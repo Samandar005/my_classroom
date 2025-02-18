@@ -9,7 +9,6 @@ class CourseListView(View):
         courses = Course.objects.all()
         return render(request, 'courses/courses.html', {'courses': courses})
 
-
 class CreateCourseView(View):
     def get(self, request):
         form = CourseForm()
