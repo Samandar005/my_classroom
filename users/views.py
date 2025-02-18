@@ -15,28 +15,23 @@ class UserListView(View):
 class UserCreateView(View):
     def get(self, request):
         form = UserForm()
-        return render(request, 'users/users-form.html', {'form': form, 'user': None})
+        ctx = {'form': form}
+        return render(request, 'users/users-form.html', ctx)
 
     def post(self, request):
         form = UserForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('users:list')
-        return render(request, 'users/users-form.html', {'form': form})
+        ctx = {'form': form}
+        return render(request, 'users/users-form.html', ctx)
 
 class UserUpdateView(View):
     def get(self, request, pk):
-        user = get_object_or_404(User, pk=pk)
-        form = UserForm(instance=user)
-        return render(request, 'users/users-form.html', {'form': form})
+        pass
 
     def post(self, request, pk):
-        user = get_object_or_404(User, pk=pk)
-        form = UserForm(request.POST, request.FILES, instance=user)
-        if form.is_valid():
-            form.save()
-            return redirect('users:list')
-        return render(request, 'users/users-form.html', {'form': form, 'user': user})
+        pass
 
 class UserDeleteView(View):
     def get(self, request, pk):

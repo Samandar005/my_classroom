@@ -23,9 +23,9 @@ class CreateCourseView(View):
 
 class UpdateCourseView(View):
     def get(self, request, pk):
-
+        pass
     def post(self, request, pk):
-
+        pass
 
 class CourseDeleteView(View):
     def get(self, request, pk):
