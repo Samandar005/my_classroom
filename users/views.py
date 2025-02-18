@@ -42,7 +42,6 @@ class UserUpdateView(View):
             user.role = form.cleaned_data.get('role')
             user.status = form.cleaned_data.get('status')
             user.image = form.cleaned_data.get('image')
-
             password1 = form.cleaned_data.get('password1')
             password2 = form.cleaned_data.get('password2')
             if password1 and password1 == password2:
