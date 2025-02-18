@@ -53,11 +53,15 @@
             {% endif %}
         </div>
 
-        <div class="mb-4">
+      <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="{{ form.image.id_for_label }}">
                 Изображение
             </label>
             {{ form.image }}
+            {% if user.image %}
+                <img src="{{ user.image.url }}" alt="User Image" style="max-width: 200px; max-height: 200px;" class="mt-2">
+            {% endif %}
+
             {% if form.image.errors %}
                 <div class="text-red-500 text-sm">{{ form.image.errors }}</div>
             {% endif %}

@@ -26,20 +26,26 @@ class UserCreateView(View):
         ctx = {'form': form}
         return render(request, 'users/users-form.html', ctx)
 
+
 class UserUpdateView(View):
     def get(self, request, pk):
         user = get_object_or_404(User, pk=pk)
         form = UserForm(instance=user)
-        ctx = {'form': form}
+        ctx = {'form': form, 'user': user}
         return render(request, 'users/users-form.html', ctx)
 
     def post(self, request, pk):
         user = get_object_or_404(User, pk=pk)
         form = UserForm(request.POST, request.FILES, instance=user)
         if form.is_valid():
+            password1 = form.cleaned_data.get('password1')
+            password2 = form.cleaned_data.get('password2')
+            if password1 and password1 == password2:
+                user.set_password(password1)
             form.save()
             return redirect('users:list')
-        ctx = {'form': form}
+
+        ctx = {'form': form, 'user': user}
         return render(request, 'users/users-form.html', ctx)
 
 class UserDeleteView(View):
