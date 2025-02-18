@@ -21,26 +21,12 @@ class CreateCourseView(View):
             return redirect('courses:list')
         return render(request, 'courses/course-form.html', {'form': form})
 
+
 class UpdateCourseView(View):
     def get(self, request, pk):
-        course = get_object_or_404(Course, pk=pk)
-        form = CourseForm(instance=course)
-        return render(request, 'courses/course-form.html', {'form': form, 'course': course})
 
     def post(self, request, pk):
-        course = get_object_or_404(Course, pk=pk)
-        form = CourseForm(request.POST, instance=course)
 
-        if form.is_valid():
-            form.save()
-            return redirect('courses:list')
-
-        return render(request, 'courses/course-form.html', {
-            'form': form,
-            'course': course,
-            'errors': form.errors,
-            'error_message': 'Kursni yangilashda xato yuz berdi. Iltimos, barcha maydonlarni to\'g\'ri to\'ldiring.'
-        })
 
 class CourseDeleteView(View):
     def get(self, request, pk):
