@@ -10,12 +10,13 @@ class CourseListView(View):
         return render(request, 'courses/courses.html', {'courses': courses})
 
 class CreateCourseView(View):
+    form = CourseForm
     def get(self, request):
-        form = CourseForm()
-        return render(request, 'courses/course-form.html', {'form': form, 'user': None})
+        ctx = {'form': self.form}
+        return render(request, 'courses/course-form.html', ctx)
 
     def post(self, request):
-        form = CourseForm(request.POST)
+        form = self.form(request.POST)
         if form.is_valid():
             form.save()
             return redirect('courses:list')
