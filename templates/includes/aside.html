@@ -1,21 +1,29 @@
 <aside class="w-64 min-h-[calc(100vh-64px)] p-3 border-r bg-white">
     <nav class="space-y-1">
-        <a href="/" class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm bg-blue-50 text-blue-700">
+        <a href="/"
+           class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm
+           {% if request.path == '/' %} bg-blue-50 text-blue-700 {% else %} text-gray-700 hover:bg-gray-100 {% endif %}">
             <i class="bi bi-house-door"></i>
             Главная страница
         </a>
+
         <a href="{% url 'courses:list' %}"
-           class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-gray-700 hover:bg-gray-100">
+           class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm
+           {% if request.resolver_match.view_name == 'courses:list' %} bg-blue-50 text-blue-700 {% else %} text-gray-700 hover:bg-gray-100 {% endif %}">
             <i class="bi bi-book"></i>
             Курсы
         </a>
+
         <a href="/assignments.html"
-           class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-gray-700 hover:bg-gray-100">
+           class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm
+           {% if request.path == '/assignments.html' %} bg-blue-50 text-blue-700 {% else %} text-gray-700 hover:bg-gray-100 {% endif %}">
             <i class="bi bi-file-text"></i>
             Задания
         </a>
+
         <a href="{% url 'users:list' %}"
-           class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-gray-700 hover:bg-gray-100">
+           class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm
+           {% if request.resolver_match.view_name == 'users:list' %} bg-blue-50 text-blue-700 {% else %} text-gray-700 hover:bg-gray-100 {% endif %}">
             <i class="bi bi-people"></i>
             Пользователи
         </a>
