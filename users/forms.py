@@ -1,6 +1,7 @@
 from django import forms
 from .models import User
 
+
 class UserForm(forms.ModelForm):
     class Meta:
         model = User
@@ -59,3 +60,7 @@ class UserForm(forms.ModelForm):
             ('in', 'Неактивный'),
             ('pd', 'В ожидании'),
         ]
+
+        if 'instance' in kwargs:
+            self.fields['password1'].required = False
+            self.fields['password2'].required = False
