@@ -29,11 +29,26 @@ class UpdateCourseView(View):
 
     def post(self, request, pk):
         course = get_object_or_404(Course, pk=pk)
-        form = CourseForm(request.POST, instance=course)
+        form = CourseForm(request.POST)
+
         if form.is_valid():
-            form.save()
+            course.name = form.cleaned_data.get('name', course.name)
+            course.code = form.cleaned_data.get('code', course.code)
+            course.description = form.cleaned_data.get('description', course.description)
+            course.status = form.cleaned_data.get('status', course.status)
+            course.teacher = form.cleaned_data.get('teacher', course.teacher)
+            course.due_date = form.cleaned_data.get('due_date', course.due_date)
+
+            course.save()
             return redirect('courses:list')
-        return render(request, 'courses/course-form.html', {'form': form, 'course': course})
+
+        return render(request, 'courses/course-form.html', {
+            'form': form,
+            'course': course,
+            'errors': form.errors,
+            'error_message': 'Kursni yangilashda xato yuz berdi. Iltimos, barcha maydonlarni to\'g\'ri to\'ldiring.'
+        })
+
 
 class CourseDeleteView(View):
     def get(self, request, pk):
