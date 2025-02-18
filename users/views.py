@@ -28,10 +28,19 @@ class UserCreateView(View):
 
 class UserUpdateView(View):
     def get(self, request, pk):
-        pass
+        user = get_object_or_404(User, pk=pk)
+        form = UserForm(instance=user)
+        ctx = {'form': form}
+        return render(request, 'users/users-form.html', ctx)
 
     def post(self, request, pk):
-        pass
+        user = get_object_or_404(User, pk=pk)
+        form = UserForm(request.POST, request.FILES, instance=user)
+        if form.is_valid():
+            form.save()
+            return redirect('users:list')
+        ctx = {'form': form}
+        return render(request, 'users/users-form.html', ctx)
 
 class UserDeleteView(View):
     def get(self, request, pk):
