@@ -15,7 +15,7 @@ class UserListView(View):
 class UserCreateView(View):
     def get(self, request):
         form = UserForm()
-        ctx = {'form': form}
+        ctx = {'form': form, 'user': None}
         return render(request, 'users/users-form.html', ctx)
 
     def post(self, request):
@@ -42,6 +42,7 @@ class UserUpdateView(View):
             user.role = form.cleaned_data.get('role')
             user.status = form.cleaned_data.get('status')
             user.image = form.cleaned_data.get('image')
+
             password1 = form.cleaned_data.get('password1')
             password2 = form.cleaned_data.get('password2')
             if password1 and password1 == password2:
@@ -51,7 +52,6 @@ class UserUpdateView(View):
 
         ctx = {'form': form, 'user': user}
         return render(request, 'users/users-form.html', ctx)
-
 class UserDeleteView(View):
     def get(self, request, pk):
         user = get_object_or_404(User, pk=pk)
