@@ -20,8 +20,6 @@ class CreateCourseView(View):
         if form.is_valid():
             form.save()
             return redirect('courses:list')
-        return render(request, 'courses/course-form.html', {'form': form})
-
 
 class UpdateCourseView(View):
     def get(self, request, pk):
