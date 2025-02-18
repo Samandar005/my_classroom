@@ -9,17 +9,18 @@ class CourseListView(View):
         courses = Course.objects.all()
         return render(request, 'courses/courses.html', {'courses': courses})
 
+
 class CreateCourseView(View):
-    form = CourseForm
     def get(self, request):
-        ctx = {'form': self.form}
-        return render(request, 'courses/course-form.html', ctx)
+        form = CourseForm()
+        return render(request, 'courses/course-form.html', {'form': form})
 
     def post(self, request):
-        form = self.form(request.POST)
+        form = CourseForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('courses:list')
+        return render(request, 'courses/course-form.html', {'form': form})
 
 class UpdateCourseView(View):
     def get(self, request, pk):
