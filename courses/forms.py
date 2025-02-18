@@ -1,5 +1,7 @@
 from django import forms
 from .models import Course
+from users.models import User
+
 
 class CourseForm(forms.ModelForm):
     class Meta:
@@ -68,3 +70,7 @@ class CourseForm(forms.ModelForm):
         if due_date and due_date < forms.DateField().clean('1900-01-01'):
             raise forms.ValidationError("Дата окончания должна быть позже указанной даты.")
         return due_date
+
+    def __init__(self, *args, **kwargs):
+        super(CourseForm, self).__init__(*args, **kwargs)
+        self.fields['teacher'].queryset = User.objects.filter(role='p')
