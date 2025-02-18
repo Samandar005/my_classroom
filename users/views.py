@@ -26,7 +26,6 @@ class UserCreateView(View):
         ctx = {'form': form}
         return render(request, 'users/users-form.html', ctx)
 
-
 class UserUpdateView(View):
     def get(self, request, pk):
         user = get_object_or_404(User, pk=pk)
@@ -48,7 +47,6 @@ class UserUpdateView(View):
             password2 = form.cleaned_data.get('password2')
             if password1 and password1 == password2:
                 user.set_password(password1)
-
             user.save()
             return redirect('users:list')
 
