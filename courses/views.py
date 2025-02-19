@@ -7,12 +7,14 @@ from .forms import CourseForm
 class CourseListView(View):
     def get(self, request):
         courses = Course.objects.all()
-        return render(request, 'courses/courses.html', {'courses': courses})
+        ctx = {'courses': courses}
+        return render(request, 'courses/courses.html', ctx)
 
 class CreateCourseView(View):
     def get(self, request):
         form = CourseForm()
-        return render(request, 'courses/course-form.html', {'form': form})
+        ctx = {'form': form}
+        return render(request, 'courses/course-form.html', ctx)
 
     def post(self, request):
         form = CourseForm(request.POST)
@@ -42,7 +44,8 @@ class UpdateCourseView(View):
 class CourseDeleteView(View):
     def get(self, request, pk):
         course = get_object_or_404(Course, pk=pk)
-        return render(request, 'courses/course-delete-confirm.html' ,{'course': course})
+        ctx = {'course': course}
+        return render(request, 'courses/course-delete-confirm.html', ctx)
 
     def post(self, request, pk):
         course = get_object_or_404(Course, pk=pk)
@@ -52,4 +55,5 @@ class CourseDeleteView(View):
 class CourseDetailView(View):
     def get(self, request, pk):
         course = get_object_or_404(Course, pk=pk)
-        return render(request, 'courses/course-details.html', {'course': course})
+        ctx = {'course': course}
+        return render(request, 'courses/course-details.html', ctx)
