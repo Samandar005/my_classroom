@@ -50,3 +50,15 @@ class AssignmentDeleteView(View):
         assignment = get_object_or_404(Assignment, pk=pk)
         assignment.delete()
         return redirect('assignments:list')
+
+class AssignmentDetailView(View):
+    def get(self, request,  year, month, day, slug):
+        assignment = get_object_or_404(
+            Assignment,
+            slug=slug,
+            created_at__year=year,
+            created_at__month=month,
+            created_at__day=day
+        )
+        ctx = {'assignment': assignment}
+        return render(request, 'assignments/assignments-detail.html', ctx)
