@@ -4,10 +4,9 @@
 
 {% block content %}
 <div class="max-w-2xl mx-auto">
-    <h1 class="text-2xl font-bold mb-6">Создать/Редактировать курс</h1>
+    <h1 class="text-2xl font-bold mb-6">{% if course %} Редактировать курс {% else %} Создать курс {% endif %}</h1>
     <form method="post" action="{% url 'courses:update' form.instance.pk %}" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         {% csrf_token %}
-
         <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="id_name">
                 Название курса
