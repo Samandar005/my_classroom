@@ -61,15 +61,21 @@
                     <div class="bg-white rounded-lg shadow p-6">
                         <h2 class="text-xl font-semibold mb-4">Действия</h2>
                         <div class="space-y-2">
-                            <button class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">
-                                Редактировать курс
-                            </button>
-                            <button class="w-full bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">
-                                Добавить задание
-                            </button>
-                            <button class="w-full bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded">
-                                Удалить курс
-                            </button>
+                            <a href="{{ course.get_update_url }}">
+                                <button class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">
+                                    Редактировать курс
+                                </button>
+                            </a>
+                            <a href="">
+                                <button class="w-full bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">
+                                    Добавить задание
+                                </button>
+                            </a>
+                            <a href="{{ course.get_delete_url }}">
+                                <button class="w-full bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded">
+                                    Удалить курс
+                                </button>
+                            </a>
                         </div>
                     </div>
                 </div>
