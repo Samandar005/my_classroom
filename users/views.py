@@ -55,7 +55,8 @@ class UserUpdateView(View):
 class UserDeleteView(View):
     def get(self, request, pk):
         user = get_object_or_404(User, pk=pk)
-        return render(request, 'users/users-delete-confirm.html' ,{'user': user})
+        ctx = {'user': user}
+        return render(request, 'users/users-delete-confirm.html' ,ctx)
 
     def post(self, request, pk):
         user = get_object_or_404(User, pk=pk)
