@@ -47,10 +47,6 @@
                     <i class="bi bi-clock text-gray-500"></i>
                     <span>Срок сдачи: {{ assignment.due_date }}</span>
                 </li>
-                <li class="flex items-center gap-2">
-                    <i class="bi bi-people text-gray-500"></i>
-                    <span>Отправлено: 15/25</span>
-                </li>
             </ul>
         </div>
         <div class="bg-white rounded-lg shadow p-6">
@@ -58,9 +54,6 @@
             <div class="space-y-2">
                 <button class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">
                     <a href="{{ assignment.get_update_url }}">Редактировать задание</a>
-                </button>
-                <button class="w-full bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">
-                    <a href="">Отправить напоминание</a>
                 </button>
                 <button class="w-full bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded">
                     <a href="{{ assignment.get_delete_url }}">Удалить задание</a>
