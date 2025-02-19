@@ -23,3 +23,4 @@ class AssignmentCreateView(View):
             return redirect('assignments:list')
         ctx = {'form': form}
         return render(request, 'assignments/assignments-form.html', ctx)
+
