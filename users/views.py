@@ -10,7 +10,8 @@ class HomePageView(View):
 class UserListView(View):
     def get(self, request):
         users = User.objects.all()
-        return render(request, 'users/users.html', {'users': users})
+        ctx = {'users': users}
+        return render(request, 'users/users.html', ctx)
 
 class UserCreateView(View):
     def get(self, request):
