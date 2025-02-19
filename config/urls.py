@@ -26,6 +26,7 @@ urlpatterns = [
     path('', HomePageView.as_view(), name='home'),
     path('users/', include('users.urls')),
     path('courses/', include('courses.urls')),
+    path('assignments/', include('assignments.urls')),
 ]
 
 if settings.DEBUG:
