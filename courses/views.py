@@ -53,7 +53,13 @@ class CourseDeleteView(View):
         return redirect('courses:list')
 
 class CourseDetailView(View):
-    def get(self, request, pk):
-        course = get_object_or_404(Course, pk=pk)
+    def get(self, request,  year, month, day, slug):
+        course = get_object_or_404(
+            Course,
+            slug=slug,
+            created_at__year=year,
+            created_at__month=month,
+            created_at__day=day
+        )
         ctx = {'course': course}
         return render(request, 'courses/course-details.html', ctx)
