@@ -15,7 +15,7 @@
             <p class="text-gray-600">Активных курсов</p>
         </div>
         <div class="bg-gray-50 px-4 py-3 text-right">
-            <a href="/courses.html" class="text-blue-600 hover:underline">Управлять курсами</a>
+            <a href="{% url 'courses:list' %}" class="text-blue-600 hover:underline">Управлять курсами</a>
         </div>
     </div>
 
@@ -28,7 +28,7 @@
             <p class="text-gray-600">Активных заданий</p>
         </div>
         <div class="bg-gray-50 px-4 py-3 text-right">
-            <a href="/assignments.html" class="text-green-600 hover:underline">Управлять заданиями</a>
+            <a href="{% url 'assignments:list' %}" class="text-green-600 hover:underline">Управлять заданиями</a>
         </div>
     </div>
 
@@ -41,7 +41,7 @@
             <p class="text-gray-600">Зарегистрированных пользователей</p>
         </div>
         <div class="bg-gray-50 px-4 py-3 text-right">
-            <a href="/users.html" class="text-purple-600 hover:underline">Управлять пользователями</a>
+            <a href="{% url 'users:list' %}" class="text-purple-600 hover:underline">Управлять пользователями</a>
         </div>
     </div>
 </div>
