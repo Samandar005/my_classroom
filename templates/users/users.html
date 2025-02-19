@@ -14,6 +14,7 @@
 </div>
 
 <div class="bg-white rounded-lg shadow overflow-hidden">
+    {% if users %}
     <table class="min-w-full divide-y divide-gray-200">
         <thead class="bg-gray-50">
             <tr>
@@ -79,6 +80,11 @@
             <!-- More user rows... -->
         </tbody>
     </table>
+    {% else %}
+        <h3 style="color: white; font-weight: bold; text-align: center; margin-top: 20px;">
+            No Added User
+        </h3>
+    {% endif %}
 </div>
 {% endblock %}
 
