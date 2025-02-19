@@ -34,21 +34,31 @@
             </tr>
         </thead>
         <tbody class="bg-white divide-y divide-gray-200">
+            {% for assignment in assignments %}
             <tr>
                 <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="text-sm font-medium text-gray-900">17-dars: Polymorphism | Uyga vazifa</div>
+                    <div class="text-sm font-medium text-gray-900"> {{ assignment.name }}</div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="text-sm text-gray-900">Python Backend</div>
-                    <div class="text-sm text-gray-500">MS 17 | 1-modul</div>
+                    <div class="text-sm text-gray-900">{{ assignment.course }}</div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="text-sm text-gray-900">25 янв. 2023</div>
+                    <div class="text-sm text-gray-900">{{ assignment.due_date }}</div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
-                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                        Активное
-                    </span>
+                    {% if assignment.status == 'ac' %}
+                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                            {{ assignment.get_status_display }}
+                        </span>
+                    {% elif assignment.status == 'in' %}
+                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                            {{ assignment.get_status_display }}
+                        </span>
+                    {% elif assignment.status == 'pd' %}
+                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                            {{ assignment.get_status_display }}
+                        </span>
+                    {% endif %}
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                     <a href="#" class="text-indigo-600 hover:text-indigo-900 mr-3">Редактировать</a>
