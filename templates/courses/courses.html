@@ -47,9 +47,6 @@
                                 <div class="text-sm font-medium text-gray-900">
                                     {{ course.name }}
                                 </div>
-                                <div class="text-sm text-gray-500">
-                                    MS 17 | 1-modul
-                                </div>
                             </div>
                         </div>
                     </a>
@@ -59,9 +56,19 @@
                     <div class="text-sm text-gray-500">{{ course.teacher.email }}</div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
-                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                        {{ course.get_status_display }}
-                    </span>
+                    {% if course.status == 'ac' %}
+                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                            {{ course.get_status_display }}
+                        </span>
+                    {% elif course.status == 'in' %}
+                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                            {{ course.get_status_display }}
+                        </span>
+                    {% elif course.status == 'pd' %}
+                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                            {{ course.get_status_display }}
+                        </span>
+                    {% endif %}
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                     <a href="{{ course.get_update_url }}" class="text-indigo-600 hover:text-indigo-900 mr-3">Редактировать</a>

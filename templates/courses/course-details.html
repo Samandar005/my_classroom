@@ -3,76 +3,75 @@
 {% block title %} Класс - Детали курса {{ course.name }} {% endblock %}
 
 {% block content %}
- <div class="mb-6">
-                <h1 class="text-3xl font-bold mb-2"> {{ course.name }}</h1>
-                <p class="text-gray-600">MS 17 | 1-modul</p>
+<div class="mb-6">
+    <h1 class="text-3xl font-bold mb-2"> {{ course.name }}</h1>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="md:col-span-2 space-y-6">
+        <div class="bg-white rounded-lg shadow p-6">
+            <h2 class="text-xl font-semibold mb-4">Описание курса</h2>
+            <p class="text-gray-700">
+                {{ course.description }}
+            </p>
+        </div>
+
+        <div class="bg-white rounded-lg shadow p-6">
+            <h2 class="text-xl font-semibold mb-4">Задания</h2>
+            <ul class="space-y-4">
+                <li class="flex items-center justify-between">
+                    <div>
+                        <h3 class="font-medium">17-dars: Polymorphism | Uyga vazifa</h3>
+                        <p class="text-sm text-gray-500">Срок сдачи: 25 янв. 2023</p>
+                    </div>
+                    <a href="#" class="text-blue-600 hover:text-blue-800">Подробнее</a>
+                </li>
+                <li class="flex items-center justify-between">
+                    <div>
+                        <h3 class="font-medium">16-dars: Inheritance</h3>
+                        <p class="text-sm text-gray-500">Срок сдачи: 20 янв. 2023</p>
+                    </div>
+                    <a href="#" class="text-blue-600 hover:text-blue-800">Подробнее</a>
+                </li>
+                <!-- More assignments... -->
+            </ul>
+        </div>
+    </div>
+
+    <div class="space-y-6">
+        <div class="bg-white rounded-lg shadow p-6">
+            <h2 class="text-xl font-semibold mb-4">Информация о курсе</h2>
+            <ul class="space-y-2">
+                <li class="flex items-center gap-2">
+                    <i class="bi bi-person text-gray-500"></i>
+                    <span>Преподаватель: {{ course.teacher }}</span>
+                </li>
+                <li class="flex items-center gap-2">
+                    <i class="bi bi-calendar text-gray-500"></i>
+                    <span>Начало: {{ course.created_at }}</span>
+                </li>
+                <li class="flex items-center gap-2">
+                    <i class="bi bi-clock text-gray-500"></i>
+                    <span>Продолжительность: {{ course.due_date }}</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="bg-white rounded-lg shadow p-6">
+            <h2 class="text-xl font-semibold mb-4">Действия</h2>
+            <div class="space-y-2">
+                <button class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">
+                    <a href="{{ course.get_update_url }}">Редактировать курс</a>
+                </button>
+                <button class="w-full bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">
+                    <a href="">Добавить задание</a>
+                </button>
+                <button class="w-full bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded">
+                    <a href="{{ course.get_delete_url }}">Удалить курс</a>
+                </button>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="md:col-span-2 space-y-6">
-                    <div class="bg-white rounded-lg shadow p-6">
-                        <h2 class="text-xl font-semibold mb-4">Описание курса</h2>
-                        <p class="text-gray-700">
-                            {{ course.description }}
-                        </p>
-                    </div>
-
-                    <div class="bg-white rounded-lg shadow p-6">
-                        <h2 class="text-xl font-semibold mb-4">Задания</h2>
-                        <ul class="space-y-4">
-                            <li class="flex items-center justify-between">
-                                <div>
-                                    <h3 class="font-medium">17-dars: Polymorphism | Uyga vazifa</h3>
-                                    <p class="text-sm text-gray-500">Срок сдачи: 25 янв. 2023</p>
-                                </div>
-                                <a href="#" class="text-blue-600 hover:text-blue-800">Подробнее</a>
-                            </li>
-                            <li class="flex items-center justify-between">
-                                <div>
-                                    <h3 class="font-medium">16-dars: Inheritance</h3>
-                                    <p class="text-sm text-gray-500">Срок сдачи: 20 янв. 2023</p>
-                                </div>
-                                <a href="#" class="text-blue-600 hover:text-blue-800">Подробнее</a>
-                            </li>
-                            <!-- More assignments... -->
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="space-y-6">
-                    <div class="bg-white rounded-lg shadow p-6">
-                        <h2 class="text-xl font-semibold mb-4">Информация о курсе</h2>
-                        <ul class="space-y-2">
-                            <li class="flex items-center gap-2">
-                                <i class="bi bi-person text-gray-500"></i>
-                                <span>Преподаватель: {{ course.teacher }}</span>
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <i class="bi bi-calendar text-gray-500"></i>
-                                <span>Начало: {{ course.created_at }}</span>
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <i class="bi bi-clock text-gray-500"></i>
-                                <span>Продолжительность: {{ course.due_date }}</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="bg-white rounded-lg shadow p-6">
-                        <h2 class="text-xl font-semibold mb-4">Действия</h2>
-                        <div class="space-y-2">
-                            <button class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">
-                                <a href="{{ course.get_update_url }}">Редактировать курс</a>
-                            </button>
-                            <button class="w-full bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">
-                                <a href="">Добавить задание</a>
-                            </button>
-                            <button class="w-full bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded">
-                                <a href="{{ course.get_delete_url }}">Удалить курс</a>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
 
