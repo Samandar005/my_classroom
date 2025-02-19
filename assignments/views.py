@@ -39,3 +39,14 @@ class AssignmentUpdateView(View):
             return redirect('assignments:list')
         ctx = {'form': form, 'assignment': assignment}
         return render(request, 'assignments/assignments-form.html', ctx)
+
+class AssignmentDeleteView(View):
+    def get(self, request, pk):
+        assignment = get_object_or_404(Assignment, pk=pk)
+        ctx = {'assignment': assignment}
+        return render(request, 'assignments/assignments-delete-confirm.html', ctx)
+
+    def post(self, request, pk):
+        assignment = get_object_or_404(Assignment, pk=pk)
+        assignment.delete()
+        return redirect('assignments:list')
