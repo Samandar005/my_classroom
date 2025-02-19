@@ -19,13 +19,15 @@ class CreateCourseView(View):
         if form.is_valid():
             form.save()
             return redirect('courses:list')
-        return render(request, 'courses/course-form.html', {'form': form})
+        ctx = {'form': form}
+        return render(request, 'courses/course-form.html', ctx )
 
 class UpdateCourseView(View):
     def get(self, request, pk):
         course = get_object_or_404(Course, pk=pk)
         form = CourseForm(instance=course)
-        return render(request, 'courses/course-form.html', {'form': form, 'course': course})
+        ctx = {'form': form, 'course': course}
+        return render(request, 'courses/course-form.html', ctx)
 
     def post(self, request, pk):
         course = get_object_or_404(Course, pk=pk)
@@ -33,7 +35,8 @@ class UpdateCourseView(View):
         if form.is_valid():
             form.save()
             return redirect('courses:list')
-        return render(request, 'courses/course-form.html', {'form': form, 'course': course})
+        ctx = {'form': form, 'course': course}
+        return render(request, 'courses/course-form.html', ctx)
 
 
 class CourseDeleteView(View):
