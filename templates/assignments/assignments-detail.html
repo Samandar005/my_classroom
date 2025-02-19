@@ -45,11 +45,11 @@
             <ul class="space-y-2">
                 <li class="flex items-center gap-2">
                     <i class="bi bi-calendar text-gray-500"></i>
-                    <span>Дата выдачи: 18 янв. 2023</span>
+                    <span>Дата выдачи: {{ assignment.created_at }}</span>
                 </li>
                 <li class="flex items-center gap-2">
                     <i class="bi bi-clock text-gray-500"></i>
-                    <span>Срок сдачи: 25 янв. 2023</span>
+                    <span>Срок сдачи: {{ assignment.due_date }}</span>
                 </li>
                 <li class="flex items-center gap-2">
                     <i class="bi bi-people text-gray-500"></i>
@@ -62,7 +62,7 @@
             <h2 class="text-xl font-semibold mb-4">Действия</h2>
             <div class="space-y-2">
                 <button class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">
-                    Редактировать задание
+                    <a href="">Редактировать задание</a>
                 </button>
                 <button class="w-full bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">
                     Отправить напоминание
