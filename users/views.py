@@ -11,7 +11,9 @@ class HomePageView(View):
     def get(self, request):
         ac_courses_count = Course.objects.filter(status='ac').count()
         ac_assignments_count = Assignment.objects.filter(status='ac').count()
+        users = User.objects.all()
         ctx = {
+            'users': users,
             'ac_courses_count': ac_courses_count,
             'ac_assignments_count': ac_assignments_count,
         }
