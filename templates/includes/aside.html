@@ -13,9 +13,9 @@
             Курсы
         </a>
 
-        <a href="/assignments.html"
+        <a href="{% url 'assignments:list' %}"
            class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm
-           {% if request.path == '/assignments.html' %} bg-blue-50 text-blue-700 {% else %} text-gray-700 hover:bg-gray-100 {% endif %}">
+           {% if request.resolver_match.view_name == 'assignments:list' %} bg-blue-50 text-blue-700 {% else %} text-gray-700 hover:bg-gray-100 {% endif %}">
             <i class="bi bi-file-text"></i>
             Задания
         </a>
