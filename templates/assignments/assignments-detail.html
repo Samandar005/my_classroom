@@ -4,86 +4,75 @@
 
 {% block content %}
 <div class="mb-6">
-                <h1 class="text-3xl font-bold mb-2">17-dars: Polymorphism | Uyga vazifa</h1>
-                <p class="text-gray-600">Курс: Python Backend</p>
+    <h1 class="text-3xl font-bold mb-2">{{ assignment.name }}</h1>
+    <p class="text-gray-600">Курс: {{ assignment.course }}</p>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="md:col-span-2 space-y-6">
+        <div class="bg-white rounded-lg shadow p-6">
+            <h2 class="text-xl font-semibold mb-4">Описание задания</h2>
+            <p class="text-gray-700">
+                {{ assignment.description }}
+            </p>
+        </div>
+
+        <div class="bg-white rounded-lg shadow p-6">
+            <h2 class="text-xl font-semibold mb-4">Отправленные работы</h2>
+            <ul class="space-y-4">
+                <li class="flex items-center justify-between">
+                    <div>
+                        <h3 class="font-medium">Иван Иванов</h3>
+                        <p class="text-sm text-gray-500">Отправлено: 24 янв. 2023, 15:30</p>
+                    </div>
+                    <a href="#" class="text-blue-600 hover:text-blue-800">Проверить</a>
+                </li>
+                <li class="flex items-center justify-between">
+                    <div>
+                        <h3 class="font-medium">Мария Петрова</h3>
+                        <p class="text-sm text-gray-500">Отправлено: 23 янв. 2023, 18:45</p>
+                    </div>
+                    <a href="#" class="text-blue-600 hover:text-blue-800">Проверить</a>
+                </li>
+                <!-- More submissions... -->
+            </ul>
+        </div>
+    </div>
+
+    <div class="space-y-6">
+        <div class="bg-white rounded-lg shadow p-6">
+            <h2 class="text-xl font-semibold mb-4">Информация о задании</h2>
+            <ul class="space-y-2">
+                <li class="flex items-center gap-2">
+                    <i class="bi bi-calendar text-gray-500"></i>
+                    <span>Дата выдачи: 18 янв. 2023</span>
+                </li>
+                <li class="flex items-center gap-2">
+                    <i class="bi bi-clock text-gray-500"></i>
+                    <span>Срок сдачи: 25 янв. 2023</span>
+                </li>
+                <li class="flex items-center gap-2">
+                    <i class="bi bi-people text-gray-500"></i>
+                    <span>Отправлено: 15/25</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="bg-white rounded-lg shadow p-6">
+            <h2 class="text-xl font-semibold mb-4">Действия</h2>
+            <div class="space-y-2">
+                <button class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">
+                    Редактировать задание
+                </button>
+                <button class="w-full bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">
+                    Отправить напоминание
+                </button>
+                <button class="w-full bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded">
+                    Удалить задание
+                </button>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="md:col-span-2 space-y-6">
-                    <div class="bg-white rounded-lg shadow p-6">
-                        <h2 class="text-xl font-semibold mb-4">Описание задания</h2>
-                        <p class="text-gray-700">
-                            В этом задании вы будете практиковать концепцию полиморфизма в Python. Вам нужно будет создать несколько классов с общим интерфейсом и продемонстрировать, как они могут быть использованы полиморфно.
-                        </p>
-                    </div>
-
-                    <div class="bg-white rounded-lg shadow p-6">
-                        <h2 class="text-xl font-semibold mb-4">Требования</h2>
-                        <ul class="list-disc list-inside space-y-2 text-gray-700">
-                            <li>Создайте базовый класс Shape с методом area()</li>
-                            <li>Создайте подклассы Circle, Rectangle и Triangle</li>
-                            <li>Реализуйте метод area() для каждого подкласса</li>
-                            <li>Продемонстрируйте использование полиморфизма с этими классами</li>
-                            <li>Напишите функцию, которая принимает список фигур и вычисляет общую площадь</li>
-                        </ul>
-                    </div>
-
-                    <div class="bg-white rounded-lg shadow p-6">
-                        <h2 class="text-xl font-semibold mb-4">Отправленные работы</h2>
-                        <ul class="space-y-4">
-                            <li class="flex items-center justify-between">
-                                <div>
-                                    <h3 class="font-medium">Иван Иванов</h3>
-                                    <p class="text-sm text-gray-500">Отправлено: 24 янв. 2023, 15:30</p>
-                                </div>
-                                <a href="#" class="text-blue-600 hover:text-blue-800">Проверить</a>
-                            </li>
-                            <li class="flex items-center justify-between">
-                                <div>
-                                    <h3 class="font-medium">Мария Петрова</h3>
-                                    <p class="text-sm text-gray-500">Отправлено: 23 янв. 2023, 18:45</p>
-                                </div>
-                                <a href="#" class="text-blue-600 hover:text-blue-800">Проверить</a>
-                            </li>
-                            <!-- More submissions... -->
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="space-y-6">
-                    <div class="bg-white rounded-lg shadow p-6">
-                        <h2 class="text-xl font-semibold mb-4">Информация о задании</h2>
-                        <ul class="space-y-2">
-                            <li class="flex items-center gap-2">
-                                <i class="bi bi-calendar text-gray-500"></i>
-                                <span>Дата выдачи: 18 янв. 2023</span>
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <i class="bi bi-clock text-gray-500"></i>
-                                <span>Срок сдачи: 25 янв. 2023</span>
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <i class="bi bi-people text-gray-500"></i>
-                                <span>Отправлено: 15/25</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="bg-white rounded-lg shadow p-6">
-                        <h2 class="text-xl font-semibold mb-4">Действия</h2>
-                        <div class="space-y-2">
-                            <button class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">
-                                Редактировать задание
-                            </button>
-                            <button class="w-full bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">
-                                Отправить напоминание
-                            </button>
-                            <button class="w-full bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded">
-                                Удалить задание
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
 
