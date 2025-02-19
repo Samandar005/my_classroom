@@ -4,7 +4,7 @@
 
 {% block content %}
  <div class="mb-6">
-                <h1 class="text-3xl font-bold mb-2">Python Backend</h1>
+                <h1 class="text-3xl font-bold mb-2"> {{ course.name }}</h1>
                 <p class="text-gray-600">MS 17 | 1-modul</p>
             </div>
 
@@ -13,7 +13,7 @@
                     <div class="bg-white rounded-lg shadow p-6">
                         <h2 class="text-xl font-semibold mb-4">Описание курса</h2>
                         <p class="text-gray-700">
-                            Этот курс охватывает основы разработки бэкенда с использованием Python. Студенты изучат ключевые концепции и инструменты, необходимые для создания надежных и масштабируемых веб-приложений.
+                            {{ course.description }}
                         </p>
                     </div>
 
@@ -45,19 +45,15 @@
                         <ul class="space-y-2">
                             <li class="flex items-center gap-2">
                                 <i class="bi bi-person text-gray-500"></i>
-                                <span>Преподаватель: Иван Иванов</span>
+                                <span>Преподаватель: {{ course.teacher }}</span>
                             </li>
                             <li class="flex items-center gap-2">
                                 <i class="bi bi-calendar text-gray-500"></i>
-                                <span>Начало: 1 янв. 2023</span>
+                                <span>Начало: {{ course.created_at }}</span>
                             </li>
                             <li class="flex items-center gap-2">
                                 <i class="bi bi-clock text-gray-500"></i>
-                                <span>Продолжительность: 12 недель</span>
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <i class="bi bi-people text-gray-500"></i>
-                                <span>Студентов: 25</span>
+                                <span>Продолжительность: {{ course.due_date }}</span>
                             </li>
                         </ul>
                     </div>
