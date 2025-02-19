@@ -2,10 +2,17 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from .forms import UserForm
 from .models import User
+from courses.models import Course
+
 
 class HomePageView(View):
     def get(self, request):
-        return render(request, 'index.html')
+        ac_courses_count = Course.objects.filter(status='ac').count()
+        ctx = {
+            'ac_courses_count': ac_courses_count,
+
+        }
+        return render(request, 'index.html', ctx)
 
 class UserListView(View):
     def get(self, request):
