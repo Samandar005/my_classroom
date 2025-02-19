@@ -29,5 +29,8 @@ class Course(BaseModel):
     def get_detail_url(self):
         return reverse('courses:detail', args=[self.pk])
 
+    def get_initials(self):
+        return ''.join([word[0].upper() for word in self.name.split()])
+
     def __str__(self):
         return self.name
