@@ -49,9 +49,9 @@ class UserUpdateView(View):
                 user.set_password(password1)
             user.save()
             return redirect('users:list')
-
         ctx = {'form': form, 'user': user}
         return render(request, 'users/users-form.html', ctx)
+
 class UserDeleteView(View):
     def get(self, request, pk):
         user = get_object_or_404(User, pk=pk)
