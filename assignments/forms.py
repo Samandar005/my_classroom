@@ -21,9 +21,9 @@ class AssignmentForm(forms.ModelForm):
                 'placeholder': 'Введите описание задания',
                 'rows': 3
             }),
-            'due_date': forms.DateTimeInput(attrs={
+            'due_date': forms.DateInput(attrs={
                 'class': 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline',
-                'type': 'datetime-local',
+                'type': 'date',
             }),
             'max_ball': forms.NumberInput(attrs={
                 'class': 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline',
@@ -40,11 +40,7 @@ class AssignmentForm(forms.ModelForm):
             raise ValidationError("Название задания должно содержать минимум 3 символа.")
         return name
 
-    def clean_due_date(self):
-        due_date = self.cleaned_data.get('due_date')
-        if due_date and due_date.date() < date.today():
-            raise ValidationError("Дата сдачи должна быть в будущем.")
-        return due_date
+
 
     def clean_max_ball(self):
         max_ball = self.cleaned_data.get('max_ball')
