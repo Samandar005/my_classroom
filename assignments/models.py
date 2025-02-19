@@ -33,6 +33,11 @@ class Assignment(BaseModel):
             self.slug
         ])
 
+    def get_update_url(self):
+        return reverse('assignments:update', args=[self.pk])
+
+    def get_delete_url(self):
+        return reverse('assignments:delete', args=[self.pk])
 
     def __str__(self):
         return f"{self.name}"
