@@ -19,21 +19,15 @@
         <div class="bg-white rounded-lg shadow p-6">
             <h2 class="text-xl font-semibold mb-4">Задания</h2>
             <ul class="space-y-4">
-                <li class="flex items-center justify-between">
-                    <div>
-                        <h3 class="font-medium">17-dars: Polymorphism | Uyga vazifa</h3>
-                        <p class="text-sm text-gray-500">Срок сдачи: 25 янв. 2023</p>
-                    </div>
-                    <a href="#" class="text-blue-600 hover:text-blue-800">Подробнее</a>
-                </li>
-                <li class="flex items-center justify-between">
-                    <div>
-                        <h3 class="font-medium">16-dars: Inheritance</h3>
-                        <p class="text-sm text-gray-500">Срок сдачи: 20 янв. 2023</p>
-                    </div>
-                    <a href="#" class="text-blue-600 hover:text-blue-800">Подробнее</a>
-                </li>
-                <!-- More assignments... -->
+                {% for assignment in course.assignments.all %}
+                    <li class="flex items-center justify-between">
+                        <div>
+                            <h3 class="font-medium">{{ assignment.name }}</h3>
+                            <p class="text-sm text-gray-500">Срок сдачи: {{ assignment.due_date }}</p>
+                        </div>
+                        <a href="{{ assignment.get_detail_url }}" class="text-blue-600 hover:text-blue-800">Подробнее</a>
+                    </li>
+                {% endfor %}
             </ul>
         </div>
     </div>
@@ -64,7 +58,7 @@
                     <a href="{{ course.get_update_url }}">Редактировать курс</a>
                 </button>
                 <button class="w-full bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">
-                    <a href="">Добавить задание</a>
+                    <a href="{% url 'assignments:create' %}">Добавить задание</a>
                 </button>
                 <button class="w-full bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded">
                     <a href="{{ course.get_delete_url }}">Удалить курс</a>
